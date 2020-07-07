@@ -20,9 +20,10 @@
     </licenses>
 
     <scm>
-        <url>https://github.com/lyuze/pay-sdk</url>
+        <tag>master</tag>
+        <url>git@github.com:lyuze/pay-sdk.git</url>
         <connection>git@github.com:lyuze/pay-sdk.git</connection>
-        <developerConnection>https://github.com/lyuze/pay-sdk</developerConnection>
+        <developerConnection>cm:git:git@github.com:lyuze/pay-sdk.git</developerConnection>
     </scm>
 
     <developers>

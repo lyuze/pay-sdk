@@ -6,7 +6,7 @@
     1. 正式版发布
 
 ## 文档
-1. [使用文档](https://github.com/lyuze/pay-sdk/doc/use.md)
+1. [使用文档](https://github.com/lyuze/pay-sdk/blob/master/doc/use.md)
 
 ## 特别注意
 1. 要求JDK8+

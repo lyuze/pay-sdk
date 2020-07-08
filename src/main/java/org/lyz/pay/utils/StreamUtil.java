@@ -1,6 +1,6 @@
 /**
  * Alipay.com Inc.
- * Copyright (c) 2004-2012 All Rights Reserved.
+ * Copyright (c) 2020, lyuze. All rights reserved.
  */
 package org.lyz.pay.utils;
 

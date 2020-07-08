@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2015, 59store. All rights reserved.
+ * Copyright (c) 2020, lyuze. All rights reserved
  */
 package org.lyz.pay.constants;
 

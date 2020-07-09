@@ -132,69 +132,56 @@
     </dependencies>
 
     <profiles>
+
+        <profile>
+            <id>java8-doclint-disabled</id>
+            <activation>
+                <jdk>[1.8,)</jdk>
+            </activation>
+            <properties>
+                <additionalparam>-Xdoclint:none</additionalparam>
+            </properties>
+        </profile>
+
         <profile>
             <id>release</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
             <build>
-                <pluginManagement>
                 <plugins>
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-compiler-plugin</artifactId>
-                        <version>3.8.1</version>
-                        <configuration>
-                            <source>${java.version}</source>
-                            <target>${java.version}</target>
-                        </configuration>
-                    </plugin>
-
-                    <!-- Source -->
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-source-plugin</artifactId>
-                        <version>3.0.1</version>
+                        <version>2.2.1</version>
                         <executions>
                             <execution>
-                                <id>attach-sources</id>
+                                <phase>package</phase>
                                 <goals>
                                     <goal>jar-no-fork</goal>
                                 </goals>
                             </execution>
                         </executions>
-                        <configuration>
-                            <attach>true</attach>
-                        </configuration>
                     </plugin>
-
-                    <!-- Javadoc -->
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-javadoc-plugin</artifactId>
-                        <version>2.10.3</version>
+                        <version>2.10.4</version>
                         <executions>
                             <execution>
-                                <id>attach-javadoc</id>
+                                <phase>package</phase>
                                 <goals>
                                     <goal>jar</goal>
                                 </goals>
                             </execution>
                         </executions>
-                        <configuration>
-                            <show>public</show>
-                            <charset>${project.build.sourceEncoding}</charset>
-                            <encoding>${project.build.sourceEncoding}</encoding>
-                            <docencoding>${project.build.sourceEncoding}</docencoding>
-                            <additionalparam>-Xdoclint:none</additionalparam>
-                        </configuration>
                     </plugin>
-
-                    <!-- GPG -->
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-gpg-plugin</artifactId>
                         <version>1.6</version>
                         <executions>
                             <execution>
-                                <id>sign-artifacts</id>
                                 <phase>verify</phase>
                                 <goals>
                                     <goal>sign</goal>
@@ -203,20 +190,16 @@
                         </executions>
                     </plugin>
                 </plugins>
-                </pluginManagement>
             </build>
-
             <distributionManagement>
-                <repository>
-                    <id>oss</id>
-                    <name>Nexus Release Repository</name>
-                    <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
-                </repository>
                 <snapshotRepository>
                     <id>oss</id>
-                    <name>Nexus Snapshot Repository</name>
                     <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
                 </snapshotRepository>
+                <repository>
+                    <id>oss</id>
+                    <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+                </repository>
             </distributionManagement>
         </profile>
     </profiles>
